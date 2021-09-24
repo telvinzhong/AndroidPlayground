@@ -3,6 +3,7 @@ package edu.neu.madcourse.numad21fa_telvinzhong;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -16,8 +17,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showUserInfo(View view) {
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "Telvin Zhong telvinzhong@gmail.com", Toast.LENGTH_LONG);
-        toast.show();
+        Intent intent = new Intent(this, AboutMe.class);
+        startActivity(intent);
+    }
+
+    public void ClickGame(View view) {
+        Intent intent = new Intent(this, Clicky.class);
+        startActivity(intent);
     }
 }

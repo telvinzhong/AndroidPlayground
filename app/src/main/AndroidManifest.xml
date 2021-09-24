@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21FaTelvinZhong">
         <activity
+            android:name=".Clicky"
+            android:exported="true"
+            android:label="@string/title_activity_clicky"
+            android:theme="@style/Theme.NUMAD21FaTelvinZhong.NoActionBar" />
+        <activity
+            android:name=".AboutMe"
+            android:exported="true"
+            android:label="@string/title_activity_about_me"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.NUMAD21FaTelvinZhong.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
