@@ -45,7 +45,7 @@ public class Clicky extends AppCompatActivity {
                     lastClick.setText("A");
                     // Change back to -
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
+                    lastClick.setText("-");
                 }
                 return true;
             }
@@ -68,7 +68,7 @@ public class Clicky extends AppCompatActivity {
 
 //    @Override
 //    public boolean onSupportNavigateUp() {
-////        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_clicky);
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_clicky);
 //        return NavigationUI.navigateUp(navController, appBarConfiguration)
 //                || super.onSupportNavigateUp();
 //    }

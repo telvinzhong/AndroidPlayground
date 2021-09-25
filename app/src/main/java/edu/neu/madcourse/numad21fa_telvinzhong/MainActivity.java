@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ClickGame(View view) {
-        Intent intent = new Intent(this, Clicky.class);
+        Intent intent = new Intent(this, ClickyTest.class);
         startActivity(intent);
     }
 }

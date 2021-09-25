@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21FaTelvinZhong">
         <activity
+            android:name=".ClickyTest"
+            android:exported="true" />
+        <activity
             android:name=".Clicky"
             android:exported="true"
             android:label="@string/title_activity_clicky"
@@ -26,6 +29,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
