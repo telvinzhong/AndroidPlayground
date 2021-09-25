@@ -13,6 +13,7 @@
             android:name=".Clicky"
             android:exported="true"
             android:label="@string/title_activity_clicky"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.NUMAD21FaTelvinZhong.NoActionBar" />
         <activity
             android:name=".AboutMe"
@@ -25,7 +26,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
