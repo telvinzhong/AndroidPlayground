@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21FaTelvinZhong">
         <activity
+            android:name=".LinkCollector"
+            android:exported="true" />
+        <activity
             android:name=".ClickyTest"
             android:exported="true" />
         <activity

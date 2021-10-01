@@ -25,4 +25,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClickyTest.class);
         startActivity(intent);
     }
+
+    public void LinkCollector(View view) {
+        Intent intent = new Intent(this, LinkCollector.class);
+        startActivity(intent);
+    }
 }
