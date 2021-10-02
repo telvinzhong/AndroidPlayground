@@ -10,4 +10,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_clicky">Clicky</string>
+    <string name="title_activity_link_collector">Link Collector</string>
+
+    <string-array name="names">
+        <item>Google</item>
+    </string-array>
+    <string-array name="urls">
+        <item>www.google.com</item>
+    </string-array>
 </resources>
