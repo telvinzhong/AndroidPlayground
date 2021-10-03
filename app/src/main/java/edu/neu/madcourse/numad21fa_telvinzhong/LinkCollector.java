@@ -1,18 +1,18 @@
 package edu.neu.madcourse.numad21fa_telvinzhong;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class LinkCollector extends AppCompatActivity {
     RecyclerView linkCollector;
@@ -38,8 +38,14 @@ public class LinkCollector extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int pos = 0;
-                names.add(pos, "test1");
-                urls.add(pos, "www.google.com");
+                String newName = "test1";
+                String newUrl = "www.google.com";
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new InputFragment()).commit();
+
+
+                names.add(pos, newName);
+                urls.add(pos, newUrl);
                 Snackbar mySnackbar = Snackbar.make(findViewById(R.id.linkCollector),
                         "New item added.", Snackbar.LENGTH_SHORT);
                 mySnackbar.show();
@@ -47,7 +53,26 @@ public class LinkCollector extends AppCompatActivity {
             }
         });
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.linkCollector),
+                        "Item deleted.", Snackbar.LENGTH_SHORT);
+                mySnackbar.show();
+                int position = viewHolder.getLayoutPosition();
+                names.remove(position);
+                urls.remove(position);
+
+                myAdapter.notifyItemRemoved(position);
+
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(linkCollector);
     }
 
 
