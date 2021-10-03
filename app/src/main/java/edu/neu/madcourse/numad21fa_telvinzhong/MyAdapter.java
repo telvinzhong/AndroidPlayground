@@ -13,12 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    String data1[], data2[];
+    ArrayList data1;
+    ArrayList data2;
     Context context;
 
-    public MyAdapter(Context ct, String names[], String urls[]) {
+    public MyAdapter(Context ct, ArrayList names, ArrayList urls) {
         context = ct;
         data1 = names;
         data2 = urls;
@@ -34,13 +37,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name_txt.setText(data1[position]);
-        holder.url_txt.setText(data2[position]);
+        holder.name_txt.setText((String) data1.get(position));
+        holder.url_txt.setText((String) data2.get(position));
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = data2[holder.getAdapterPosition()];
+                String url = (String) data2.get(holder.getAdapterPosition());
                 if (!url.startsWith("http://") && !url.startsWith("https://"))
                     url = "http://" + url;
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -51,7 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return data1.length;
+        return data1.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

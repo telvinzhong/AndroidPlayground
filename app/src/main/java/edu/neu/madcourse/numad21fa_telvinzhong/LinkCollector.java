@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class LinkCollector extends AppCompatActivity {
     RecyclerView linkCollector;
-    String names[], urls[];
+    ArrayList names;
+    ArrayList urls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +19,8 @@ public class LinkCollector extends AppCompatActivity {
         setContentView(R.layout.activity_link_collector);
 
         linkCollector = findViewById(R.id.linkCollector);
-        names = getResources().getStringArray(R.array.names);
-        urls = getResources().getStringArray(R.array.urls);
+        ArrayList names = new ArrayList();
+        ArrayList urls = new ArrayList();
 
         MyAdapter myAdapter = new MyAdapter(this, names, urls);
         linkCollector.setAdapter(myAdapter);
