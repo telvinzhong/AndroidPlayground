@@ -63,16 +63,12 @@ public class Locator extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
+        // Ensure that location permissions are granted, otherwise request them
         if (requestCode == 1){
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
-
                 if (isGPSEnabled()) {
-
                     getCurrentLocation();
-
                 }else {
-
                     turnOnGPS();
                 }
             }
